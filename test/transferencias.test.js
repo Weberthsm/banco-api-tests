@@ -1,6 +1,6 @@
 const request = require('supertest');
 const {expect} = require('chai');
-const baseurl = 'http://localhost:3000';
+require('dotenv').config();
 
 
 describe('Transferências',()=>{
@@ -13,7 +13,7 @@ describe('Transferências',()=>{
 
           //Capturar o token
         
-         const responselogin = await request(baseurl)
+         const responselogin = await request(process.env.BASE_URL)
                         .post('/login')
                         .set('content-type','application/json')
                         .send({
@@ -25,7 +25,7 @@ describe('Transferências',()=>{
             const token = responselogin.body.token            
 
 
-         const Response = await request(baseurl)
+         const Response = await request(process.env.BASE_URL)
          .post('/transferencias')
          .set('context-type','application/json')
          .set('Authorization', `Bearer ${token}`) 
@@ -47,7 +47,7 @@ describe('Transferências',()=>{
         it('Deve retornar 422 quando o valor da transferência for abaixo de R$10', async ()=>{
                   //Capturar o token
         
-         const responselogin = await request(baseurl)
+         const responselogin = await request(process.env.BASE_URL)
                         .post('/login')
                         .set('content-type','application/json')
                         .send({
@@ -59,7 +59,7 @@ describe('Transferências',()=>{
             const token = responselogin.body.token            
 
 
-         const Response = await request(baseurl)
+         const Response = await request(process.env.BASE_URL)
          .post('/transferencias')
          .set('context-type','application/json')
          .set('Authorization', `Bearer ${token}`) 
