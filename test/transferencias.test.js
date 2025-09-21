@@ -6,12 +6,16 @@ const {obterToken} = require('../helpers/autenticacao')
 
 describe('Transferências',()=>{
     describe('/post transferências', ()=>{
+        
+        let token
+
+        beforeEach(async()=>{
+            //Capturar o token antes de cada it
+            token = await obterToken('julio.lima','123456');
+        })
 
         it('Deve retornar 201 quando o valor da transferência for maior ou igual a R$10', async ()=>{
-
-         //Capturar o token
-         const token = await obterToken('julio.lima','123456');
-         
+        
          const Response = await request(process.env.BASE_URL)
          .post('/transferencias')
          .set('content-type','application/json')
@@ -32,9 +36,6 @@ describe('Transferências',()=>{
         
 
         it('Deve retornar 422 quando o valor da transferência for abaixo de R$10', async ()=>{
-              
-          //Capturar o token
-         const token = await obterToken('julio.lima','123456');           
 
          const Response = await request(process.env.BASE_URL)
          .post('/transferencias')
