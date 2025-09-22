@@ -2,7 +2,7 @@
 
 Projeto de **automação de testes** para a [Banco API](https://github.com/Weberthsm/banco-api), desenvolvido em **JavaScript** com foco em testes de integração de endpoints REST.  
 
-O objetivo é validar o correto funcionamento da API, garantindo confiabilidade nas operações de criação de contas, transferências, autenticação e demais recursos.  
+O objetivo é validar o correto funcionamento da API, contribuindo para a confiabilidade nas operações de criação de contas, transferências, autenticação e demais recursos.  
 
 ---
 
