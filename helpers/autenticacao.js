@@ -6,7 +6,7 @@ const obterToken = async (usuario, senha)=>{
    
     const bodyLogin = {...postLogin}
     const responselogin = await request(process.env.BASE_URL)
-                            .post('/login')
+                            .post('/api/v1/auth/login')
                             .set('content-type','application/json')
                             .send(bodyLogin) 
     
